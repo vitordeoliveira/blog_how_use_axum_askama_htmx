@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>{% block title %}{{ title }}{% endblock %}</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
+
+  </head>
+  <body class="bg-gray-300">
+    <div id="content" class="container m-auto text-center my-12 text-3xl">
+      {% block content %}
+      <p>{{ myownvalue }}</p>
+      <button class="bg-orange-700 text-white border-orange-700 border-4 p-3 mt-5 rounded-lg" hx-get="/home" hx-trigger="click" hx-target="#content" hx-swap="afterend">Append home after</button>
+      {% endblock %}
+    </div>
+  </body>
+</html>
